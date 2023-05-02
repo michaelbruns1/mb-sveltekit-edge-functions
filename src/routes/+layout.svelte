@@ -1,4 +1,5 @@
 <script>
+	import "../app.css";
 	import { fade } from 'svelte/transition';
 	import '$lib/styles.css';
 	import card from '$lib/twitter-card.jpg';

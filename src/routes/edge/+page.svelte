@@ -5,7 +5,9 @@
 	export let data;
 </script>
 
-<h1><span>Hello from the edge!</span></h1>
+<h1 class="text-3xl font-bold text-blue-400 underline">
+  Hello world!
+</h1>
 
 <div class="info">
 	<Details city={data.city} ip={data.ip} />
