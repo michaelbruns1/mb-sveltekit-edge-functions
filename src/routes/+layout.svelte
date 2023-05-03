@@ -1,4 +1,5 @@
 <script>
+	
 	// Your selected Skeleton theme:
 import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
 
@@ -13,6 +14,7 @@ import '../app.postcss';
 	import Card from '$lib/Card.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import { page } from '$app/stores';
+	import { AppShell } from '@skeletonlabs/skeleton'; // Add this line
 </script>
 
 <svelte:head>
@@ -27,58 +29,29 @@ import '../app.postcss';
 	<meta name="twitter:image:alt" content="The Vercel and Svelte logos">
 </svelte:head>
 
-<Card></Card>
+<!-- <Card></Card> -->
 
-<nav>
-	<a aria-current={$page.url.pathname === '/edge' ? 'true' : undefined} href="/edge">edge</a>
-	<a
-		aria-current={$page.url.pathname === '/edge/streaming' ? 'true' : undefined}
-		href="/edge/streaming">(streamed)</a
-	>
-	/
-	<a aria-current={$page.url.pathname === '/node' ? 'true' : undefined} href="/node">node</a>
-	<a
-		aria-current={$page.url.pathname === '/node/streaming' ? 'true' : undefined}
-		href="/node/streaming">(streamed)</a
-	>
-</nav>
-
-{#key $page.url.pathname}
-	<main in:fade>
-		<slot></slot>
-	</main>
-{/key}
-
-<Footer></Footer>
-
-<style>
-	main {
-		position: relative;
-		width: 100vw;
-		height: 100%;
-		padding: 2.5rem;
-		box-sizing: border-box;
-	}
-
-	nav {
-		position: absolute;
-		display: flex;
-		justify-content: center;
-		padding: 1rem;
-		gap: 0.5em;
-		top: 0;
-		left: 0;
-		width: 100%;
-		z-index: 2;
-		font-size: 0.9rem;
-		color: #999;
-	}
-
-	a {
-		color: #666;
-	}
-
-	a[aria-current='true'] {
-		color: #ff3e00;
-	}
-</style>
+<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">
+	<svelte:fragment slot="header">Header</svelte:fragment>
+	<!-- <svelte:fragment slot="sidebarLeft">Sidebar Left</svelte:fragment> -->
+	<svelte:fragment slot="sidebarLeft">
+		<nav class="list-nav">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">About</a></li>
+				<li><a href="/blog">Blog</a></li>
+			</ul>
+		</nav>
+	</svelte:fragment>
+	<svelte:fragment slot="sidebarRight">Sidebar Right</svelte:fragment>
+	<svelte:fragment slot="pageHeader">Page Header</svelte:fragment>
+	<!-- Router Slot -->
+	{#key $page.url.pathname}
+		<main in:fade>
+			<slot></slot>
+		</main>
+	{/key}
+	<!-- ---- / ---- -->
+	<svelte:fragment slot="pageFooter">Page Footer</svelte:fragment>
+	<svelte:fragment slot="footer"><Footer /></svelte:fragment>
+</AppShell>
