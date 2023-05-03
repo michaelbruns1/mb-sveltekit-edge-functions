@@ -1,5 +1,12 @@
 <script>
-	import "../app.css";
+	// Your selected Skeleton theme:
+import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
+
+// This contains the bulk of Skeletons required styles:
+import '@skeletonlabs/skeleton/styles/all.css';
+
+// Finally, your application's global stylesheet (sometimes labeled 'app.css')
+import '../app.postcss';
 	import { fade } from 'svelte/transition';
 	import '$lib/styles.css';
 	import card from '$lib/twitter-card.jpg';
@@ -10,17 +17,17 @@
 
 <svelte:head>
 	<title>SvelteKit on the edge</title>
-	<meta name="description" content="HTML, dynamically rendered in a city near you" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:site" content="@vercel" />
-	<meta name="twitter:creator" content="@sveltejs" />
-	<meta name="twitter:title" content="SvelteKit on the edge" />
-	<meta name="twitter:description" content="HTML, dynamically rendered in a city near you" />
-	<meta name="twitter:image" content="{$page.url.origin}{card}" />
-	<meta name="twitter:image:alt" content="The Vercel and Svelte logos" />
+	<meta name="description" content="HTML, dynamically rendered in a city near you">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@vercel">
+	<meta name="twitter:creator" content="@sveltejs">
+	<meta name="twitter:title" content="SvelteKit on the edge">
+	<meta name="twitter:description" content="HTML, dynamically rendered in a city near you">
+	<meta name="twitter:image" content="{$page.url.origin}{card}">
+	<meta name="twitter:image:alt" content="The Vercel and Svelte logos">
 </svelte:head>
 
-<Card />
+<Card></Card>
 
 <nav>
 	<a aria-current={$page.url.pathname === '/edge' ? 'true' : undefined} href="/edge">edge</a>
@@ -38,11 +45,11 @@
 
 {#key $page.url.pathname}
 	<main in:fade>
-		<slot />
+		<slot></slot>
 	</main>
 {/key}
 
-<Footer />
+<Footer></Footer>
 
 <style>
 	main {

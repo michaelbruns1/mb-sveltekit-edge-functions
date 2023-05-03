@@ -1,5 +1,5 @@
 <script>
-	import '../../app.css';
+
 	import Details from '$lib/Details.svelte';
 	import Post from '../post.svx';
 	import Card from '$lib/Card.svelte';

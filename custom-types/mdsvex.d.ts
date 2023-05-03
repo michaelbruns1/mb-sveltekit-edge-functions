@@ -1,5 +1,4 @@
 declare module '*.svx' {
-  import type { SvelteComponentTyped } from 'svelte';
-  const component: SvelteComponentTyped<{}, {}, {}>;
+  const component: any;
   export default component;
 }
