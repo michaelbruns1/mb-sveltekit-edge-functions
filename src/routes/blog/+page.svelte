@@ -1,7 +1,11 @@
-<h1>blog</h1>
+<script>
+	export let data;
+</script>
 
-<ul>
-	<li><a href="/blog/one">one</a></li>
-	<li><a href="/blog/two">two</a></li>
-	<li><a href="/blog/three">three</a></li>
+<h1 class="text-xl">blog</h1>
+
+<ul class="bg-green-800 text-xl">
+	{#each data.summaries as { slug, title }}
+		<li><a href="/blog/{slug}">{title}</a></li>
+	{/each}
 </ul>
