@@ -1,0 +1,7 @@
+---
+title: My first mdsvex post
+---
+
+# Hello, mdsvsex!
+
+This is an example post using **mdsvex**.
