@@ -14,7 +14,12 @@ import '../app.postcss';
 	import Card from '$lib/Card.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import { page } from '$app/stores';
-	import { AppShell } from '@skeletonlabs/skeleton'; // Add this line
+	import { AppShell, AppBar, CodeBlock, storeHighlightJs  } from '@skeletonlabs/skeleton';
+	import hljs from 'highlight.js';
+	import 'highlight.js/styles/github-dark.css'
+	storeHighlightJs.set(hljs);
+
+
 </script>
 
 <svelte:head>
@@ -32,28 +37,31 @@ import '../app.postcss';
 <!-- <Card></Card> -->
 
 <AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">
-	<svelte:fragment slot="header">Header</svelte:fragment>
+	<svelte:fragment slot="header">
+		<AppBar>Skeleton</AppBar>
+	</svelte:fragment>
 	<svelte:fragment slot="sidebarLeft">
 		<nav class="list-nav">
 			<ul>
-				<li><a href="/home">Home</a></li>
-				<li><a href="/about">About</a></li>
-				<li><a href="/blog">Blog</a></li>
+				<li><a href="/">Home</a></li>
+				<li><a href="/edge">Edge</a></li>
+				<li><a href="/node">Node</a></li>
 			</ul>
 		</nav>
 	</svelte:fragment>
 	<svelte:fragment slot="sidebarRight">
+		
 
-		{#key $page.url.pathname}
-		<main in:fade>
-			<slot></slot>
-		</main>
-	{/key}
+
+		
+
 
 	</svelte:fragment>
-	<svelte:fragment slot="pageHeader">Page Header</svelte:fragment>
+	<svelte:fragment slot="pageHeader">PageHeader</svelte:fragment>
 	<!-- Router Slot -->
-
+	<span class="block">
+		<slot></slot>
+	</span>
 	<!-- ---- / ---- -->
 	<svelte:fragment slot="pageFooter">Page Footer</svelte:fragment>
 	<svelte:fragment slot="footer"><Footer /></svelte:fragment>
