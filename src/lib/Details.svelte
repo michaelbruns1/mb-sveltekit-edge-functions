@@ -20,7 +20,7 @@
 		</div>
 	</div>
 </div>
-
+<!-- 
 <style>
 	.details {
 		--border-color: rgba(0, 0, 0, 0.08);
@@ -74,4 +74,4 @@
 			justify-content: start;
 		}
 	}
-</style>
+</style> -->

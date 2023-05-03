@@ -33,24 +33,27 @@ import '../app.postcss';
 
 <AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">
 	<svelte:fragment slot="header">Header</svelte:fragment>
-	<!-- <svelte:fragment slot="sidebarLeft">Sidebar Left</svelte:fragment> -->
 	<svelte:fragment slot="sidebarLeft">
 		<nav class="list-nav">
 			<ul>
-				<li><a href="/">Home</a></li>
+				<li><a href="/home">Home</a></li>
 				<li><a href="/about">About</a></li>
 				<li><a href="/blog">Blog</a></li>
 			</ul>
 		</nav>
 	</svelte:fragment>
-	<svelte:fragment slot="sidebarRight">Sidebar Right</svelte:fragment>
-	<svelte:fragment slot="pageHeader">Page Header</svelte:fragment>
-	<!-- Router Slot -->
-	{#key $page.url.pathname}
+	<svelte:fragment slot="sidebarRight">
+
+		{#key $page.url.pathname}
 		<main in:fade>
 			<slot></slot>
 		</main>
 	{/key}
+
+	</svelte:fragment>
+	<svelte:fragment slot="pageHeader">Page Header</svelte:fragment>
+	<!-- Router Slot -->
+
 	<!-- ---- / ---- -->
 	<svelte:fragment slot="pageFooter">Page Footer</svelte:fragment>
 	<svelte:fragment slot="footer"><Footer /></svelte:fragment>
